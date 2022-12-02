@@ -1,6 +1,4 @@
 abstract class DataBaseRequest {
-  static String deleteTable(String table) => 'DROP TABLE $table';
-
   static const String tableRole = "role";
   static const String tableModel = "model";
   static const String tablePeriod = "period";
@@ -10,6 +8,14 @@ abstract class DataBaseRequest {
   static const String tableReceipt = "receipt";
   static const String tableReceiptFinal  = "receiptfinal";
   static const String tableEmployee = "employee";
+  static const String tableUser = 'user';
+
+  static String deleteTable(String table) => 'DROP TABLE $table';
+
+  static String select(String table) => 'Select * from $table';
+
+  static String selectName(String table, List<String> test) =>
+      'Select ${test.toString().replaceAll('[', '').replaceAll(']', '')} from $table';
 
   static const List<String> tableList = [
     tableRole,
@@ -20,11 +26,13 @@ abstract class DataBaseRequest {
     tableBicycle,
     tableEmployee,
     tableReceipt,
-    tableReceiptFinal
+    tableReceiptFinal,
+    tableUser
   ];
 
   static const List<String> tableCreateList = [
     _createTableRole,
+    _createTableUsers,
     _createTableModel,
     _createTablePeriod,
     _createTableClient,
@@ -33,7 +41,11 @@ abstract class DataBaseRequest {
     _createTableEmployee,
     _createTableReceipt,
     _createTableReceiptFinal
+
   ];
+  /// Запрос для создания таблицы User
+  static const String _createTableUsers =
+      'CREATE TABLE "$tableUser" ("id"	INTEGER,"login"	TEXT NOT NULL UNIQUE,"password"	TEXT NOT NULL,"id_role"	INTEGER,FOREIGN KEY("id_role") REFERENCES "Role"("id") ON DELETE CASCADE,PRIMARY KEY("id" AUTOINCREMENT) )';
 
   /// Запрос для создания таблицы Role
   static const String _createTableRole =

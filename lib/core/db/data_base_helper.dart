@@ -1,11 +1,11 @@
 import 'dart:io';
 
+import 'package:flatter_test_projact/data/model/user.dart';
 import 'package:sqflite/sqlite_api.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 import 'package:path/path.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
-
 import '../../common/data_base_request.dart';
 import '../../data/model/bicycle.dart';
 import '../../data/model/client.dart';
@@ -31,7 +31,7 @@ class DataBaseHelper {
     _appDocumentDirectory =
     await path_provider.getApplicationDocumentsDirectory();
 
-    _pathDB = join(_appDocumentDirectory.path, 'Prakticheskay_bd.db');
+    _pathDB = join(_appDocumentDirectory.path, 'Prakticheskay3_bd.db');
 
     if (Platform.isLinux || Platform.isWindows || Platform.isMacOS) {
       sqfliteFfiInit();
@@ -63,26 +63,12 @@ class DataBaseHelper {
         db.insert(
             DataBaseRequest.tableModel, Model(model: element.model).toMap());
       }
-
       db.insert(
-          DataBaseRequest.tableEmployee,
-          Employee(
-              login: 'Apela',
-              surname: 'Efremov',
+          DataBaseRequest.tableUser,
+          User(
+              login: 'Apela1234!',
               idRole: RoleEnum.admin,
-              middlename: 'Olegovich',
-              name: 'Artem',
-              password: 'qwerty123')
-              .toMap());
-      db.insert(
-          DataBaseRequest.tableEmployee,
-          Employee(
-              login: 'User',
-              surname: 'Lolkin',
-              idRole: RoleEnum.user,
-              middlename: 'Pavlovich',
-              name: 'Kiril',
-              password: 'qwerty123')
+              password: 'Apela1234!')
               .toMap());
 
       db.insert(DataBaseRequest.tableClient,

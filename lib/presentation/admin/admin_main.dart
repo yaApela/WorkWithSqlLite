@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
 
-class AdminHome extends StatefulWidget {
+class AdminMain extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _homeState();
+  State<StatefulWidget> createState() => _mainState();
 }
 
-class _homeState extends State<AdminHome> {
+class _mainState extends State<AdminMain> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

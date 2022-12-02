@@ -1,8 +1,8 @@
 import 'package:flatter_test_projact/common/url_page.dart';
-import 'package:flatter_test_projact/presentation/admin/admin_home.dart';
+import 'package:flatter_test_projact/presentation/admin/admin_main.dart';
 import 'package:flatter_test_projact/presentation/auth/sign_in.dart';
 import 'package:flatter_test_projact/presentation/auth/sign_up.dart';
-import 'package:flatter_test_projact/presentation/user/user_home.dart';
+import 'package:flatter_test_projact/presentation/user/user_main.dart';
 import 'package:flutter/material.dart';
 import 'core/db/data_base_helper.dart';
 
@@ -18,8 +18,8 @@ class App extends StatelessWidget {
     return MaterialApp(
       initialRoute: UrlPage.singIn,
       routes: {
-        UrlPage.admin: (context) => AdminHome(),
-        UrlPage.user: (context) => UserHome(),
+        UrlPage.admin: (context) => AdminMain(),
+        UrlPage.user: (context) => UserMain(),
         UrlPage.singIn: (context) => SignIn(),
         UrlPage.signUp: (context) => SignUp()
       },

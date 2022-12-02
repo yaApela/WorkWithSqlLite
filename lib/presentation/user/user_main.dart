@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class UserHome extends StatefulWidget {
+class UserMain extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _userHomeState();
+  State<StatefulWidget> createState() => _userMainState();
 }
 
-class _userHomeState extends State<UserHome> {
+class _userMainState extends State<UserMain> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
